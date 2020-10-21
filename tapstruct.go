@@ -8,9 +8,24 @@ type Personteam struct {
 	Abbrev      string       `json:"abbrev"`
 	ColorF      string       `json:"colorF"`
 	ColorB      string       `json:"colorB"`
+	IterTiming  IterTiming   `json:"iterTiming"`
 	HasChildren bool         `json:"hasChildren"`
 	Children    []Personteam `json:"childrenDetails"` // Can be empty even if HasChildren is true
 }
+
+// IterTiming describes the granularity of iterations, allowing different people and teams to specify their cadence
+type IterTiming string
+
+const (
+	// Yearly means each year is an iteration. Appropriate for long term objectives of big orgs
+	Yearly IterTiming = "yearly"
+	// Quarterly means each quarter (3 months) is an iteration
+	Quarterly IterTiming = "quarterly"
+	// Monthly means each month is an iteration
+	Monthly IterTiming = "monthly"
+	// Biweekly means every two weeks is an iteration, starting on the first day of the year
+	Biweekly IterTiming = "biweekly"
+)
 
 // Threadrow holds the summary info for a thread, needed to display it in a table with other threads
 type Threadrow struct {
