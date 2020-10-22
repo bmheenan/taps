@@ -33,9 +33,11 @@ type Threadrow struct {
 	Domain      string      `json:"domain"`
 	Name        string      `json:"name"`
 	State       ThreadState `json:"state"`
-	Cost        int         `json:"cost"`
+	CostCtx     int         `json:"costCtx"` // The work owned by the personteam being displayed to complete this thread
 	Owner       Personteam  `json:"owner"`
 	Iteration   string      `json:"iteration"`
+	Order       int         `json:"order"`
+	Percentile  float32     `json:"percentile"`
 	HasChildren bool        `json:"hasChildren"`
 	Children    []Threadrow `json:"children"` // Can be empty even if HasChildren is true
 }
@@ -45,13 +47,16 @@ type Threaddetail struct {
 	ID           int          `json:"id"`
 	Domain       string       `json:"domain"`
 	Name         string       `json:"name"`
+	Description  string       `json:"description"`
 	State        ThreadState  `json:"state"`
 	CostDirect   int          `json:"costDirect"`
 	CostTotal    int          `json:"costTotal"`
 	Owner        Personteam   `json:"owner"`
 	Stakeholders []Personteam `json:"stakeholders"`
 	Iteration    string       `json:"iteration"`
-	// Children and parents aren't required; we can use functions that query using ID as the parent/child to get them
+	Order        int          `json:"order"`
+	Percentile   float32      `json:"percentile"`
+	// Children and parents aren't required; we use functions that query using ID as the parent/child
 }
 
 // ThreadState describes the possible states for a thread
