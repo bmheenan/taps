@@ -29,7 +29,7 @@ const (
 
 // Threadrow holds the summary info for a thread, needed to display it in a table with other threads
 type Threadrow struct {
-	ID          int         `json:"id"`
+	ID          int64       `json:"id"`
 	Domain      string      `json:"domain"`
 	Name        string      `json:"name"`
 	State       ThreadState `json:"state"`
@@ -44,7 +44,7 @@ type Threadrow struct {
 
 // Threaddetail holds detailed information on a thread, needed for the drilldown view
 type Threaddetail struct {
-	ID           int          `json:"id"`
+	ID           int64        `json:"id"`
 	Domain       string       `json:"domain"`
 	Name         string       `json:"name"`
 	Description  string       `json:"description"`
