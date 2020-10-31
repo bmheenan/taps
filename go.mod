@@ -1,3 +1,3 @@
-module github.com/bmheenan/tapstruct
+module github.com/bmheenan/taps
 
 go 1.15

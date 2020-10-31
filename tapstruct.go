@@ -1,16 +1,14 @@
-package tapstruct
+package taps
 
 // Personteam defines a person or a team, with the info needed to display them to the user
 type Personteam struct {
-	Email       string       `json:"email"` // primary key
-	Domain      string       `json:"domain"`
-	Name        string       `json:"name"`
-	Abbrev      string       `json:"abbrev"`
-	ColorF      string       `json:"colorF"`
-	ColorB      string       `json:"colorB"`
-	IterTiming  IterTiming   `json:"iterTiming"`
-	HasChildren bool         `json:"hasChildren"`
-	Children    []Personteam `json:"childrenDetails"` // Can be empty even if HasChildren is true
+	Email      string     `json:"email"` // primary key
+	Domain     string     `json:"domain"`
+	Name       string     `json:"name"`
+	Abbrev     string     `json:"abbrev"`
+	ColorF     string     `json:"colorF"`
+	ColorB     string     `json:"colorB"`
+	IterTiming IterTiming `json:"iterTiming"`
 }
 
 // IterTiming describes the granularity of iterations, allowing different people and teams to specify their cadence
@@ -29,17 +27,16 @@ const (
 
 // Threadrow holds the summary info for a thread, needed to display it in a table with other threads
 type Threadrow struct {
-	ID          int64       `json:"id"`
-	Domain      string      `json:"domain"`
-	Name        string      `json:"name"`
-	State       ThreadState `json:"state"`
-	CostCtx     int         `json:"costCtx"` // The work owned by the personteam being displayed to complete this thread
-	Owner       Personteam  `json:"owner"`
-	Iteration   string      `json:"iteration"`
-	Order       int         `json:"order"`
-	Percentile  float32     `json:"percentile"`
-	HasChildren bool        `json:"hasChildren"`
-	Children    []Threadrow `json:"children"` // Can be empty even if HasChildren is true
+	ID         int64       `json:"id"`
+	Domain     string      `json:"domain"`
+	Name       string      `json:"name"`
+	State      ThreadState `json:"state"`
+	CostCtx    int         `json:"costCtx"` // The work owned by the personteam being displayed to complete this thread
+	Owner      Personteam  `json:"owner"`
+	Iteration  string      `json:"iteration"`
+	Order      int         `json:"order"`
+	Percentile float32     `json:"percentile"`
+	Children   []Threadrow `json:"children"`
 }
 
 // Threaddetail holds detailed information on a thread, needed for the drilldown view
@@ -56,7 +53,6 @@ type Threaddetail struct {
 	Iteration    string       `json:"iteration"`
 	Order        int          `json:"order"`
 	Percentile   float32      `json:"percentile"`
-	// Children and parents aren't required; we use functions that query using ID as the parent/child
 }
 
 // ThreadState describes the possible states for a thread
