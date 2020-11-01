@@ -70,3 +70,15 @@ const (
 	// Archived is for threads that were valid, but low enough priority that they were never addressed
 	Archived ThreadState = "archived"
 )
+
+// Threadrel tracks just the thread data the backend uses for calculating cost, order, and percentile
+type Threadrel struct {
+	ID               int64
+	State            string
+	CostDirect       int
+	Owner            string
+	Iteration        string
+	Order            int
+	Percentile       float64
+	StakeholderMatch bool // States if the thread has a given stakeholder, specified in a query
+}
