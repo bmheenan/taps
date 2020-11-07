@@ -2,7 +2,7 @@ package taps
 
 // There are three ways to hold a thread's data
 
-// Threadrow holds the info for a thread when it needs to be displayed in a hierarchical table with other threads
+// Threadrow holds contextual info for a thread when it needs to be displayed in a hierarchical table
 type Threadrow struct {
 	ID       int64       `json:"id"`
 	Name     string      `json:"name"`
@@ -14,25 +14,14 @@ type Threadrow struct {
 	Children []Threadrow `json:"children"`
 }
 
-// Threaddetail holds detailed information on a thread, needed for its thread view
-type Threaddetail struct {
-	ID           int64                  `json:"id"`
-	Name         string                 `json:"name"`
-	Desc         string                 `json:"desc"`
-	State        ThreadState            `json:"state"`
-	CostDir      int                    `json:"costDirect"`
-	CostTot      int                    `json:"costTotal"` // Includes all descendants
-	Owner        Stakeholder            `json:"owner"`
-	Stakeholders map[string]Stakeholder `json:"stakeholders"`
-	Iter         string                 `json:"iteration"`
-	Percentile   float32                `json:"percentile"`
-}
-
-// Threadrel tracks the thread data the backend uses for calculating cost, order, and percentile
-type Threadrel struct {
+// Thread holds info needed for a thread's details page, plus data used for calculating cost, order, and percentile
+type Thread struct {
 	ID           int64
+	Name         string
+	Desc         string
 	State        string
 	CostDir      int
+	CostTot      int
 	Owner        string
 	Iter         string
 	Percentile   float64

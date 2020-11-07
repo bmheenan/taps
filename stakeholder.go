@@ -1,6 +1,6 @@
 package taps
 
-// Stakeholder defines a person or a team-an entity who can own or be a stakholder of threads
+// Stakeholder defines a person or a team of people- an entity who can own or be a stakeholder of threads
 type Stakeholder struct {
 	Email   string      `json:"email"`
 	Domain  string      `json:"domain"`
@@ -11,7 +11,7 @@ type Stakeholder struct {
 	Cadence IterCadence `json:"iterCadence"`
 }
 
-// IterCadence describes the granularity of iterations, allowing different people and teams to specify their cadence
+// IterCadence describes the granularity that a stakeholder uses for iterations
 type IterCadence string
 
 const (
