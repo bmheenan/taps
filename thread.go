@@ -1,6 +1,6 @@
 package taps
 
-// There are three ways to hold a thread's data
+// There are two ways to hold a thread's data
 
 // Threadrow holds contextual info for a thread when it needs to be displayed in a hierarchical table
 type Threadrow struct {
@@ -26,8 +26,10 @@ type Thread struct {
 	Iter       string
 	Percentile float64
 	Stks       map[string](struct {
-		Iter string
-		Ord  int
+		Iter   string
+		Ord    int
+		Cost   int
+		Toplvl bool
 	})
 	Parents map[int64](struct {
 		Iter string
