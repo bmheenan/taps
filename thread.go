@@ -6,7 +6,7 @@ package taps
 type Threadrow struct {
 	ID       int64       `json:"id"`
 	Name     string      `json:"name"`
-	State    ThreadState `json:"state"`
+	State    State       `json:"state"`
 	Cost     int         `json:"costCtx"` // Different for each stakeholder + total; depends on the context
 	Owner    Stakeholder `json:"owner"`
 	Iter     string      `json:"iter"` // The base iteration of the thread, not where its appearing
@@ -16,16 +16,16 @@ type Threadrow struct {
 
 // Thread holds info needed for a thread's details page, plus data used for calculating cost, order, and percentile
 type Thread struct {
-	ID           int64
-	Name         string
-	Desc         string
-	State        string
-	CostDir      int
-	CostTot      int
-	Owner        string
-	Iter         string
-	Percentile   float64
-	Stakeholders map[string](struct {
+	ID         int64
+	Name       string
+	Desc       string
+	State      State
+	CostDir    int
+	CostTot    int
+	Owner      Stakeholder
+	Iter       string
+	Percentile float64
+	Stks       map[string](struct {
 		Iter string
 		Ord  int
 	})
@@ -35,18 +35,18 @@ type Thread struct {
 	})
 }
 
-// ThreadState describes the possible states for a thread
-type ThreadState string
+// State describes the possible states of a thread
+type State string
 
 const (
 	// NotStarted is the default state; it hasn't been worked on (yet)
-	NotStarted ThreadState = "not started"
+	NotStarted State = "not started"
 	// InProgress is for when a thread is being worked on, but is not complete
-	InProgress ThreadState = "in progress"
+	InProgress State = "in progress"
 	// Done is for when the value has been delivered to the stakeholders
-	Done ThreadState = "done"
+	Done State = "done"
 	// Closed is appropriate for threads working as intended, unactionable, or duplicates
-	Closed ThreadState = "closed"
+	Closed State = "closed"
 	// Archived is for threads that were valid, but low enough priority that they were never addressed
-	Archived ThreadState = "archived"
+	Archived State = "archived"
 )
