@@ -26,10 +26,9 @@ type Thread struct {
 	Iter       string
 	Percentile float64
 	Stks       map[string](struct {
-		Iter   string
-		Ord    int
-		Cost   int
-		Toplvl bool
+		Iter string
+		Ord  int
+		Cost int
 	})
 	Parents map[int64](struct {
 		Iter string
