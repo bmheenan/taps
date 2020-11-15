@@ -7,7 +7,7 @@ type Threadrow struct {
 	ID       int64       `json:"id"`
 	Name     string      `json:"name"`
 	State    State       `json:"state"`
-	Cost     int         `json:"costCtx"` // Different for each stakeholder + total; depends on the context
+	Cost     int         `json:"cost"` // Different for each stakeholder + total; depends on the context
 	Owner    Stakeholder `json:"owner"`
 	Iter     string      `json:"iter"` // The base iteration of the thread, not where its appearing
 	Ord      int         `json:"ord"`
