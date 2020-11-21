@@ -11,10 +11,10 @@ type Stakeholder struct {
 	Cadence Cadence `json:"cadence"`
 }
 
-// Team holds the Stakeholder info for a team, and an array of all children of that team
-type Team struct {
-	Stk     Stakeholder `json:"stk"`
-	Members []Team      `json:"members"`
+// StkInHier holds the Stakeholder info for a team, and an array of all children of that team
+type StkInHier struct {
+	Stakeholder
+	Members []StkInHier `json:"members"`
 }
 
 // Cadence describes the granularity that a stakeholder uses for iterations
