@@ -14,3 +14,8 @@ type APIThreadsPostReq struct {
 type APIThreadsPostRes struct {
 	ID int64 `json:"id"`
 }
+
+// APIThreadsGetRes defines the response for a GET to /threads/{id}
+type APIThreadsGetRes struct {
+	Th Thread `json:"thread"`
+}
