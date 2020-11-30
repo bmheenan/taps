@@ -19,3 +19,13 @@ type APIThreadsPostRes struct {
 type APIThreadsGetRes struct {
 	Th Thread `json:"thread"`
 }
+
+// APIThreadsPutReq defines the request for a PUT to /threads
+type APIThreadsPutReq struct {
+	Ths        []int64 `json:"threads"`
+	AddParents []int64 `json:"addParents"`
+	RmParents  []int64 `json:"removeParents"`
+	Iter       string  `json:"iter"`
+	OrdBefore  int64   `json:"ordBefore"`
+	OrdEnd     bool    `json:"ordEnd"`
+}
