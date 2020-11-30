@@ -29,6 +29,6 @@ type APIThreadsPutReq struct {
 	Ord        struct {
 		Pa  int64  `json:"parent"`
 		Stk string `json:"stk"`
-		Val int    `json:"value"`
+		Val int64  `json:"value"`
 	} `json:"ord"`
 }
