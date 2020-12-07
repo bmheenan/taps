@@ -22,6 +22,15 @@ type APIThreadsGetRes struct {
 
 // APIThreadsPutReq defines the request for a PUT to /threads
 type APIThreadsPutReq struct {
+	Name string `json:"name"`
+	Desc struct {
+		New   bool   `json:"new"`
+		Value string `json:"value"`
+	} `json:"desc"`
+	Cost struct {
+		New   bool `json:"new"`
+		Value int  `json:"value"`
+	} `json:"cost"`
 	AddParents []int64 `json:"addParents"`
 	RmParents  []int64 `json:"removeParents"`
 	Iter       string  `json:"iter"`
