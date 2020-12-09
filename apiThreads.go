@@ -31,9 +31,12 @@ type APIThreadsPutReq struct {
 		New   bool `json:"new"`
 		Value int  `json:"value"`
 	} `json:"cost"`
-	AddParents []int64 `json:"addParents"`
-	RmParents  []int64 `json:"removeParents"`
-	Iter       string  `json:"iter"`
+	State      State    `json:"state"`
+	AddStks    []string `json:"addStks"`
+	RmStks     []string `json:"removeStks"`
+	AddParents []int64  `json:"addParents"`
+	RmParents  []int64  `json:"removeParents"`
+	Iter       string   `json:"iter"`
 	Ord        struct {
 		Pa  int64  `json:"parent"`
 		Stk string `json:"stk"`
