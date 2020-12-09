@@ -41,9 +41,9 @@ type State string
 
 const (
 	// NotStarted is the default state; it hasn't been worked on (yet)
-	NotStarted State = "not started"
+	NotStarted State = "notstarted"
 	// InProgress is for when a thread is being worked on, but is not complete
-	InProgress State = "in progress"
+	InProgress State = "inprogress"
 	// Done is for when the value has been delivered to the stakeholders
 	Done State = "done"
 	// Closed is appropriate for threads working as intended, unactionable, or duplicates
