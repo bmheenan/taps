@@ -31,6 +31,7 @@ type APIThreadsPutReq struct {
 		New   bool `json:"new"`
 		Value int  `json:"value"`
 	} `json:"cost"`
+	Owner      string   `json:"owner"`
 	State      State    `json:"state"`
 	AddStks    []string `json:"addStks"`
 	RmStks     []string `json:"removeStks"`
